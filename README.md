@@ -1,4 +1,4 @@
-🛒 Laravel E-Commerce Starter
+## 🛒 Laravel E-Commerce Starter
 
 This project is a starter template for an e-commerce application built with Laravel Breeze authentication and role-based access.
 
@@ -14,7 +14,7 @@ Reviews system
 
 Dummy data seeding
 
-🚀 Installation
+## 🚀 Installation
 
 Clone the repo
 
@@ -41,7 +41,7 @@ php artisan migrate:fresh --seed
 
 This will create tables and insert dummy categories, products, and inventories.
 
-📂 Project Structure
+## 📂 Project Structure
 app/
  ├── Models/
  │   ├── User.php (hasMany Orders)
@@ -58,7 +58,7 @@ app/
  │       ├── OrderController.php
  │       └── CategoryController.php
 
-🗄️ Database Schema
+## 🗄️ Database Schema
 
 Users → roles: customer, admin, vendor
 
@@ -86,7 +86,7 @@ Run:
 
 php artisan db:seed
 
-🛡️ Authentication
+## 🛡️ Authentication
 
 This project uses Laravel Breeze with Tailwind CSS.
 
@@ -107,3 +107,18 @@ Add Cart system (session/db based)
 Add Admin Dashboard for managing categories/products/orders
 
 Add Vendor Role to manage own products
+
+## Some Glimpse
+
+<img width="1440" height="783" alt="Screenshot 2025-08-22 at 2 37 22 PM" src="https://github.com/user-attachments/assets/82367068-460d-46ff-9d32-d85aab46eac9" />
+
+
+<img width="1440" height="779" alt="Screenshot 2025-08-22 at 2 43 17 PM" src="https://github.com/user-attachments/assets/844e9b98-6afb-494f-a13c-0d281009aa04" />
+
+
+<img width="1440" height="776" alt="Screenshot 2025-08-22 at 2 43 00 PM" src="https://github.com/user-attachments/assets/c295e2e0-eb52-481a-bb38-7eb5f35c7486" />
+
+
+
+
+

@@ -1,66 +1,109 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+🛒 Laravel E-Commerce Starter
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a starter template for an e-commerce application built with Laravel Breeze authentication and role-based access.
 
-## About Laravel
+It includes:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+User roles: Customer, Admin, Vendor
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Categories, Products, Inventories
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Orders with pivot table (order_items)
 
-## Learning Laravel
+Reviews system
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Dummy data seeding
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+🚀 Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Clone the repo
 
-## Laravel Sponsors
+git clone https://github.com/your-username/your-project.git
+cd your-project
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+Install dependencies
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+composer install
+npm install && npm run dev
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Setup .env
+Copy .env.example → .env and update database credentials.
 
-## Code of Conduct
+php artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+Run migrations + seeders
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan migrate:fresh --seed
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# WearWell-Laravel-e-commerce
-A simple yet complete e-commerce and inventory management system built with Laravel. This project demonstrates core Laravel concepts including authentication, models &amp; ORM relations, service providers, events &amp; listeners, middleware, and payment integration.
->>>>>>> 98096baef8a25937dc8bf371d8e3719a74d609e1
+This will create tables and insert dummy categories, products, and inventories.
+
+📂 Project Structure
+app/
+ ├── Models/
+ │   ├── User.php (hasMany Orders)
+ │   ├── Category.php (hasMany Products)
+ │   ├── Product.php (belongsTo Category, hasMany Reviews, hasOne Inventory)
+ │   ├── Order.php (belongsTo User, belongsToMany Products)
+ │   ├── Review.php (belongsTo Product)
+ │   ├── Inventory.php (belongsTo Product)
+ │
+ ├── Http/
+ │   ├── Controllers/
+ │       ├── Auth/ (Breeze Auth Controllers)
+ │       ├── ProductController.php
+ │       ├── OrderController.php
+ │       └── CategoryController.php
+
+🗄️ Database Schema
+
+Users → roles: customer, admin, vendor
+
+Categories → each has many products
+
+Products → belongs to category, has inventory & reviews
+
+Inventories → tracks stock for products
+
+Orders → belongs to user, many-to-many products (order_items pivot)
+
+Reviews → belongs to products
+
+🧪 Seeding Dummy Data
+
+We’ve included seeders for:
+
+Categories (Electronics, Clothing, Books, etc.)
+
+Products (auto-generated under each category)
+
+Inventories (random stock quantity for each product)
+
+Run:
+
+php artisan db:seed
+
+🛡️ Authentication
+
+This project uses Laravel Breeze with Tailwind CSS.
+
+Register/Login/Logout included
+
+Role column in users table allows multiple access levels
+
+🛠️ Commands
+Command	Description
+php artisan serve	Start local server
+php artisan migrate	Run database migrations
+php artisan db:seed	Seed dummy data
+php artisan migrate:fresh --seed	Reset DB and re-seed
+📌 Next Steps
+
+Add Cart system (session/db based)
+
+Add Admin Dashboard for managing categories/products/orders
+
+Add Vendor Role to manage own products

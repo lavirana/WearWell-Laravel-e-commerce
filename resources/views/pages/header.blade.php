@@ -21,7 +21,16 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
     rel="stylesheet">
+    <style>
+  .nav-item {
+    font-size: 14px;
+  }
+  .user_men {
+    font-size: 14px;
+  }
+</style>
 </head>
+
 
 <body class="homepage">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -278,7 +287,19 @@
                 
               
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Blog</a>
+                  <a class="nav-link" href="#">Men</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Women</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Kids</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Beauty</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Offers</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contact</a>
@@ -291,11 +312,11 @@
         <div class="col-3 col-lg-auto">
           <ul class="list-unstyled d-flex m-0">
             <li class="d-none d-lg-block">
-              <a href="index.html" class="text-uppercase mx-3">Wishlist <span class="wishlist-count">(0)</span>
+              <a href="index.html" class="text-uppercase mx-3 user_men">Wishlist <span class="wishlist-count">(0)</span>
               </a>
             </li>
             <li class="d-none d-lg-block">
-              <a href="index.html" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
+              <a href="index.html" class="text-uppercase mx-3 user_men" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                 aria-controls="offcanvasCart">Cart <span class="cart-count">(0)</span>
               </a>
             </li>
@@ -304,11 +325,11 @@
             {{-- If NOT logged in (Guest) --}}
         @guest
         <li class="d-none d-lg-block">
-              <a href="{{ route('login') }}" class="text-uppercase mx-3">Login
+              <a href="{{ route('login') }}" class="text-uppercase mx-3 user_men">Login
               </a>
             </li>
             <li class="d-none d-lg-block">
-              <a href="{{ route('register') }}" class="text-uppercase mx-3">Signup
+              <a href="{{ route('register') }}" class="text-uppercase mx-3 user_men">Signup
               </a>
             </li>
 
@@ -316,7 +337,7 @@
 
         {{-- If Logged in --}}
         @auth
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" style="margin-top: 3px;">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" 
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
               {{ Auth::user()->name }}

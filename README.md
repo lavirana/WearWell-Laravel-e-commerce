@@ -122,6 +122,11 @@ Add Vendor Role to manage own products
 
 <img width="1431" height="778" alt="Screenshot 2025-08-23 at 1 24 04 PM" src="https://github.com/user-attachments/assets/215f70b9-cd34-4884-99ea-4e4c4d5cb92a" />
 
+<img width="1435" height="780" alt="Screenshot 2025-08-23 at 1 46 17 PM" src="https://github.com/user-attachments/assets/dc876173-4c66-4824-bc7c-19da4ee86fa1" />
+
+<img width="1433" height="778" alt="Screenshot 2025-08-23 at 1 46 24 PM" src="https://github.com/user-attachments/assets/d9949160-50e1-4221-8cc6-a563f2f5412b" />
+
+
 
 
 

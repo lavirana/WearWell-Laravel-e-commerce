@@ -112,9 +112,7 @@ Add Vendor Role to manage own products
 
 <img width="1440" height="783" alt="Screenshot 2025-08-22 at 2 37 22 PM" src="https://github.com/user-attachments/assets/82367068-460d-46ff-9d32-d85aab46eac9" />
 
-
 <img width="1440" height="779" alt="Screenshot 2025-08-22 at 2 43 17 PM" src="https://github.com/user-attachments/assets/844e9b98-6afb-494f-a13c-0d281009aa04" />
-
 
 <img width="1440" height="776" alt="Screenshot 2025-08-22 at 2 43 00 PM" src="https://github.com/user-attachments/assets/c295e2e0-eb52-481a-bb38-7eb5f35c7486" />
 
@@ -126,7 +124,14 @@ Add Vendor Role to manage own products
 
 <img width="1433" height="778" alt="Screenshot 2025-08-23 at 1 46 24 PM" src="https://github.com/user-attachments/assets/d9949160-50e1-4221-8cc6-a563f2f5412b" />
 
+<img width="1435" height="778" alt="Screenshot 2025-08-24 at 6 48 26 PM" src="https://github.com/user-attachments/assets/0920fea0-fb02-406a-98dd-df55d8e63b01" />
 
+<img width="1432" height="778" alt="Screenshot 2025-08-24 at 6 48 33 PM" src="https://github.com/user-attachments/assets/e7e02507-7011-4b67-bf2c-165116159384" />
 
+<img width="1434" height="777" alt="Screenshot 2025-08-24 at 6 48 39 PM" src="https://github.com/user-attachments/assets/1e051493-5b9f-4400-97cd-97c61dc79ad0" />
+
+<img width="1434" height="779" alt="Screenshot 2025-08-24 at 6 48 46 PM" src="https://github.com/user-attachments/assets/9947f647-d510-4168-ab93-7473458776cd" />
+
+<img width="1432" height="776" alt="Screenshot 2025-08-24 at 6 49 01 PM" src="https://github.com/user-attachments/assets/c9d54312-0662-4f44-9b9b-5361691679ae" />
 
 

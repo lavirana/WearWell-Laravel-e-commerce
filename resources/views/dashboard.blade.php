@@ -535,48 +535,64 @@
     </div>
   </section>
 
-  <section class="testimonials py-5 bg-light">
-    <div class="section-header text-center mt-5">
-      <h3 class="section-title">WE LOVE GOOD COMPLIMENT</h3>
-    </div>
-    <div class="swiper testimonial-swiper overflow-hidden my-5">
-      <div class="swiper-wrapper d-flex">
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>“More than expected crazy soft, flexible and best fitted white simple denim shirt.”</p>
-              <div class="review-title text-uppercase">casual way</div>
-            </blockquote>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
-              <div class="review-title text-uppercase">uptop</div>
-            </blockquote>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>“Best fitted white denim shirt more white denim than expected flexible crazy soft.”</p>
-              <div class="review-title text-uppercase">Denim craze</div>
-            </blockquote>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimonial-item text-center">
-            <blockquote>
-              <p>“Best fitted white denim shirt more than expected crazy soft, flexible</p>
-              <div class="review-title text-uppercase">uptop</div>
-            </blockquote>
+  <!-- Shop by Category Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4 fw-bold">SHOP BY CATEGORY</h2>
+    <div class="row g-4">
+
+      <!-- Category Card -->
+      <div class="col-6 col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="images/category-ethnic.jpg" class="card-img-top" alt="Ethnic Wear">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">Ethnic Wear</h6>
+            <p class="text-danger small mb-1">50-80% OFF</p>
+            <a href="#" class="btn btn-sm btn-outline-dark">Shop Now</a>
           </div>
         </div>
       </div>
+
+      <!-- Category Card -->
+      <div class="col-6 col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="images/category-casual.jpg" class="card-img-top" alt="Casual Wear">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">WFH Casual Wear</h6>
+            <p class="text-danger small mb-1">40-80% OFF</p>
+            <a href="#" class="btn btn-sm btn-outline-dark">Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Card -->
+      <div class="col-6 col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="images/category-active.jpg" class="card-img-top" alt="Activewear">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">Activewear</h6>
+            <p class="text-danger small mb-1">30-70% OFF</p>
+            <a href="#" class="btn btn-sm btn-outline-dark">Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Card -->
+      <div class="col-6 col-md-3">
+        <div class="card shadow-sm border-0 h-100">
+          <img src="images/category-western.jpg" class="card-img-top" alt="Western Wear">
+          <div class="card-body text-center">
+            <h6 class="fw-bold">Western Wear</h6>
+            <p class="text-danger small mb-1">40-80% OFF</p>
+            <a href="#" class="btn btn-sm btn-outline-dark">Shop Now</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="testimonial-swiper-pagination d-flex justify-content-center mb-5"></div>
-  </section>
+  </div>
+</section>
+
 
   <section id="related-products" class="related-products product-carousel py-5 position-relative overflow-hidden">
     <div class="container">
@@ -796,6 +812,9 @@
     </div>
   </section>
 
+
+
+  
   <section class="instagram position-relative">
     <div class="d-flex justify-content-center w-100 position-absolute bottom-0 z-1">
       <a href="https://www.instagram.com/templatesjungle/" class="btn btn-dark px-5">Follow us on Instagram</a>

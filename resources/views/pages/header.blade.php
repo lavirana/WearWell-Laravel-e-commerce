@@ -257,7 +257,7 @@
       <div class="row justify-content-between align-items-center w-100">
 
         <div class="col-auto">
-          <a class="navbar-brand text-white" href="index.html" style="background-color: #80808024;
+          <a class="navbar-brand text-white" href="/" style="background-color: #80808024;
     padding: 0px 3px 0px 3px;
     border: 1px solid #ffd700bd;">
             <strong style="color: #daa5208c;">W</strong>ear<strong>W</strong>ell
@@ -287,10 +287,10 @@
                 
               
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Men</a>
+                  <a class="nav-link" href="{{route('shop.men')}}">Men</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Women</a>
+                  <a class="nav-link" href="{{route('shop.women')}}">Women</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Kids</a>

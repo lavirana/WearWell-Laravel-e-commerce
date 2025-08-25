@@ -5,12 +5,12 @@
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-001">
             <div class="footer-intro mb-4">
-              <a href="index.html">
-                <img src="https://themewagon.github.io/kaira/images/main-logo.png" alt="logo">
-              </a>
+            <a class="text-white" href="/" style="background-color: #80808024;
+    padding: 0px 3px 0px 3px;">
+            <strong style="color: #daa5208c;">W</strong>ear<strong>W</strong>ell
+          </a>
             </div>
-            <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus
-              vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+            <p>WearWell is your go-to destination for men’s fashion, offering a seamless shopping experience with easy navigation and secure payment options. With just a few clicks or taps, explore top men’s brands and bring home your favorites effortlessly.</p>
             <div class="social-links">
               <ul class="list-unstyled d-flex flex-wrap gap-3">
                 <li>
@@ -103,34 +103,10 @@
           <div class="footer-menu footer-menu-004 border-animation-left">
             <h5 class="widget-title text-uppercase mb-4">Contact Us</h5>
             <p>Do you have any questions or suggestions? <a href="mailto:contact@yourcompany.com"
-                class="item-anchor">contact@yourcompany.com</a></p>
-            <p>Do you need support? Give us a call. <a href="tel:+43 720 11 52 78" class="item-anchor">+43 720 11 52
+                class="item-anchor"><br>contact@wearwell.com</a></p>
+            <!-- <p>Do you need support? Give us a call. <a href="tel:+43 720 11 52 78" class="item-anchor">+43 720 11 52
                 78</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="border-top py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 d-flex flex-wrap">
-            <div class="shipping">
-              <span>We ship with:</span>
-              <img src="https://themewagon.github.io/kaira/images/arct-icon.png" alt="icon">
-              <img src="https://themewagon.github.io/kaira/images/dhl-logo.png" alt="icon">
-            </div>
-            <div class="payment-option">
-              <span>Payment Option:</span>
-              <img src="https://themewagon.github.io/kaira/images/visa-card.png" alt="card">
-              <img src="https://themewagon.github.io/kaira/images/paypal-card.png" alt="card">
-              <img src="https://themewagon.github.io/kaira/images/master-card.png" alt="card">
-            </div>
-          </div>
-          <div class="col-md-6 text-end">
-            <p>© Copyright 2022 Kaira. All rights reserved. Design by <a href="https://templatesjungle.com"
-                target="_blank">TemplatesJungle</a> Distribution By <a href="https://themewagon.com"
-              target="blank">ThemeWagon</a></p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -142,6 +118,25 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="{{ asset('js/script.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
 </body>
 
 </html>

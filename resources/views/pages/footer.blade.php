@@ -137,6 +137,41 @@
   });
 </script>
 
+<script>
+
+  $(document).ready(function(){
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+      $(document).on('click', '.add_to_cart', function(){
+          let productId = $(this).data('product-id');
+          let userId = $(this).data('user-id');
+          let quantity = $(this).data('quantity');
+          $.ajax({
+            url : "/add-to-cart",
+            type: "POST",
+            data: {
+              product_id : productId,
+              user_id : userId,
+              quantity : quantity
+            },
+            success: function(response) {
+              alert('Added to cart');
+            },
+            error: function(xhr){
+              if (xhr.responseJSON && xhr.responseJSON.message) {
+                alert(xhr.responseJSON.message); 
+              } else {
+                alert("Something went wrong!");
+              }
+            }
+          })
+      });
+  });
+</script>
+
 </body>
 
 </html>

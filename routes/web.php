@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\shopController;
@@ -22,5 +23,7 @@ Route::get('shop/women', [shopController::class, 'women'])->name('shop.women');
 Route::get('category-listing', [shopController::class, 'category_listing'])->name('category-listing');
 
 Route::get('/product-detail', [shopController::class, 'product_detail'])->name('product-detail');
+
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
 
 require __DIR__.'/auth.php';

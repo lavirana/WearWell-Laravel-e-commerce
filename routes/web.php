@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\shopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WishlistController;
 
 Route::get('/', [homeController::class, 'index']);
 
@@ -33,6 +34,17 @@ Route::get('checkout',[CartController::class, 'checkout'])->name('checkout');
 Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.place');
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
 
+// Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+// Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.remove');
+// Route::post('/wishlist/add', [WishlistController::class, 'store'])->name('wishlist.add');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.remove');
+    Route::post('/wishlist/add', [WishlistController::class, 'store'])->name('wishlist.add');
+    Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+
+});
 
 
 require __DIR__.'/auth.php';

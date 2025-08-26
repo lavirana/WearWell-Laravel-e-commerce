@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class homeController extends Controller
 {
@@ -18,8 +19,12 @@ class homeController extends Controller
         $newest_arrival = Product::orderBy('id', 'desc')->limit(4)->get();
         $latest_products = Product::inRandomOrder()->limit(5)->get();
         $categories = Category::orderBy('id', 'desc')->limit(8)->get();
+        $wishlistIds = Auth::check()
+        ? \App\Models\Wishlist::where('user_id', auth::id())->pluck('product_id')->toArray()
+        : [];
 
-        return view('welcome', compact('categories','latest_products','newest_arrival','latest_blogs'));
+
+        return view('welcome', compact('categories','latest_products','newest_arrival','latest_blogs','wishlistIds'));
     }
 
     /**

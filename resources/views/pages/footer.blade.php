@@ -201,6 +201,52 @@ $(document).ready(function() {
 });
 </script>
 
+<script>
+$(document).on('click', '.wishlist-btn', function(e) {
+    e.preventDefault();
+
+    let productId = $(this).data('product');
+
+    $.ajax({
+        url: "{{ route('wishlist.add') }}",
+        method: "POST",
+        data: {
+            product_id: productId,
+            _token: "{{ csrf_token() }}"
+        },
+        success: function(response) {
+            alert(response.message); // you can also show a toast
+        },
+        error: function(xhr) {
+            alert("Something went wrong!");
+        }
+    });
+});
+</script>
+
+<script>
+  $(document).on('click', '.wishlist-btn', function () {
+    let productId = $(this).data('id');
+    let icon = $('#wishlist-icon-' + productId);
+
+    $.ajax({
+        url: '/wishlist/toggle',
+        type: 'POST',
+        data: {
+            product_id: productId,
+            _token: '{{ csrf_token() }}'
+        },
+        success: function (res) {
+            if (res.added) {
+                icon.removeClass('text-gray-400').addClass('text-red-500');
+            } else {
+                icon.removeClass('text-red-500').addClass('text-gray-400');
+            }
+        }
+    });
+});
+
+</script>
 
 </body>
 

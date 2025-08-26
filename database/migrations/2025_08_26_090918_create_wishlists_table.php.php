@@ -11,7 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('wishlists', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');     // who added to wishlist
+            $table->unsignedBigInteger('product_id');  // which product is added
+            $table->timestamps();
+
+            // Foreign keys (optional, but recommended if you have users/products tables)
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+
+            // To prevent duplicate wishlist entries for same user-product
+            $table->unique(['user_id', 'product_id']);
+        });
     }
 
     /**
@@ -19,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('wishlists');
     }
 };

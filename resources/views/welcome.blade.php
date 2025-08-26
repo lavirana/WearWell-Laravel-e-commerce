@@ -132,11 +132,22 @@
                 <a href="index.html">
                   <img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
+                <!-- <a href="index.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
                     <use xlink:href="#heart"></use>
                   </svg>
-                </a>
+                </a> -->
+
+                <button class="btn-icon btn-wishlist wishlist-btn" 
+                      data-product="{{ $newest_arr->id }}">
+                      <!-- <svg width="24" height="24" viewBox="0 0 24 24">
+                    <use xlink:href="#heart"></use>
+                  </svg> -->
+                  <i id="wishlist-icon-{{ $newest_arr->id }}"
+               class="{{ in_array($newest_arr->id, $wishlistIds) ? 'fa-solid fa-heart text-red-500' : 'fa-regular fa-heart text-gray-400' }}">
+            </i>
+</button>
+
                 <div class="product-content">
                   <h5 class="element-title text-uppercase fs-5 mt-3">
                     <a href="index.html">{{ $newest_arr->name; }}</a>

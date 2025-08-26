@@ -65,29 +65,26 @@ class CartController extends Controller
     {
         //
     }
-
     public function addToCart(Request $request)
     {
         $user = Auth::user();
     
-        // Cart find/create
+        // User ke liye cart fetch ya create
         $cart = Cart::firstOrCreate(
             ['user_id' => $user->id],
             ['created_at' => now(), 'updated_at' => now()]
         );
     
-        // CartItem check (only pending items)
+        // Check if product already exists in cart with status pending
         $cartItem = CartItem::where('cart_id', $cart->id)
             ->where('product_id', $request->product_id)
-            ->where('status', 'pending') // 👈 check only pending items
+            ->where('status', 'pending')
             ->first();
     
         if ($cartItem) {
-            // अगर अभी तक purchase नहीं किया है → quantity plus
             $cartItem->quantity += $request->quantity ?? 1;
             $cartItem->save();
         } else {
-            // अगर product already completed है → नया record बनेगा
             CartItem::create([
                 'cart_id' => $cart->id,
                 'product_id' => $request->product_id,
@@ -95,9 +92,99 @@ class CartController extends Controller
                 'status' => 'pending'
             ]);
         }
-    
-        return response()->json(['message' => 'Product added to cart successfully!']);
+        // Get updated cart items
+        $items = CartItem::where('cart_id', $cart->id)
+            ->where('status', 'pending')
+            ->with('product')
+            ->get();
+        // Total items count
+        $totalItems = $items->sum('quantity');
+        // Sidebar HTML render (ab ye header ka hi cart-section hoga)
+        $cartHtml = view('pages.cart_sidebar', compact('items', 'totalItems'))->render();
+        return response()->json([
+            'message' => 'Product added to cart successfully!',
+            'total_items' => $totalItems,
+            'cart_html' => $cartHtml
+        ]);
     }
+    
+    
+            public function getCart()
+            {
+                $user = Auth::user();
+                $cart = Cart::where('user_id', $user->id)->first();
+                $items = [];
+                $totalItems = 0;
+
+                if ($cart) {
+                    $items = CartItem::where('cart_id', $cart->id)
+                        ->where('status', 'pending')
+                        ->with('product')
+                        ->get();
+                    $totalItems = $items->sum('quantity');
+                }
+                $cartHtml = view('pages.cart_sidebar', compact('items', 'totalItems'))->render();
+                return response()->json([
+                    'cart_html' => $cartHtml,
+                    'total_items' => $totalItems
+                ]);
+            }
+
+            public function getUserPendingCartCount()
+            {
+                $user = Auth::user();
+                $totalItems = 0;
+            
+                if ($user) {
+                    $cart = Cart::where('user_id', $user->id)->first();
+            
+                    if ($cart) {
+                        $totalItems = CartItem::where('cart_id', $cart->id)
+                            ->where('status', 'pending')
+                            ->sum('quantity');
+                    }
+                }
+            
+                return response()->json([
+                    'total_items' => $totalItems
+                ]);
+            }
+            
+
+            public function checkout(){
+                return view('checkout');
+            }
+
+
+
+            public function placeOrder(Request $request)
+{
+    // 1️⃣ Payment
+    $payment = app('PaymentGateway');
+    $response = $payment->charge(16587, 'INR'); // take total dynamically from cart
+
+    if ($response['status'] !== 'success') {
+        return back()->with('error', 'Payment failed!');
+    }
+
+    // 2️⃣ Inventory
+    $inventory = app('InventoryService');
+    $inventory->decreaseStock('wallet', 9);
+    $inventory->decreaseStock('watch', 3);
+    $inventory->decreaseStock('trousers', 1);
+
+    // 3️⃣ Notification
+    $notify = app('NotificationService');
+    $notify->send($request->email, "Your order has been placed successfully!");
+
+    return redirect()->route('checkout.success');
+}
+
+public function success()
+{
+    return view('checkout-success'); // create blade file for success page
+}
+
     
     
 }

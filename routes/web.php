@@ -5,6 +5,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\shopController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CheckoutController;
 
 Route::get('/', [homeController::class, 'index']);
 
@@ -18,12 +19,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::get('/get-cart', [CartController::class, 'getCart'])->name('get.cart');
 Route::get('shop/men', [shopController::class, 'men'])->name('shop.men');
 Route::get('shop/women', [shopController::class, 'women'])->name('shop.women');
 Route::get('category-listing', [shopController::class, 'category_listing'])->name('category-listing');
-
 Route::get('/product-detail', [shopController::class, 'product_detail'])->name('product-detail');
-
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
+Route::get('/cart-count', [CartController::class, 'getUserPendingCartCount'])->name('cart.count');
+
+Route::get('checkout',[CartController::class, 'checkout'])->name('checkout');
+
+Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.place');
+Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+
+
 
 require __DIR__.'/auth.php';

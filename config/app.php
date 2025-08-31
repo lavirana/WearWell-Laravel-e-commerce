@@ -169,6 +169,8 @@ return [
          App\Providers\PaymentServiceProvider::class,
          App\Providers\InventoryServiceProvider::class,
          App\Providers\NotificationServiceProvider::class,
+         App\Providers\PaymentServiceProvider2::class,
+
 
 ],
 

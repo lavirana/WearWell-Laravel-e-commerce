@@ -5,4 +5,5 @@ return [
     App\Providers\InventoryServiceProvider::class,
     App\Providers\NotificationServiceProvider::class,
     App\Providers\PaymentServiceProvider::class,
+    App\Providers\PaymentServiceProvider2::class,
 ];

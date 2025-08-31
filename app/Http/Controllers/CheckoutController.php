@@ -3,15 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contracts\PaymentGatewayInterface;
 
 class CheckoutController extends Controller
 {
+
+    protected $paymentGateway;
+
+    public function __construct(PaymentGatewayInterface $paymentGateway)
+    {
+        $this->paymentGateway = $paymentGateway;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         return view('checkout');
+    }
+
+    public function placeOrder2()
+    {
+        $amount = 16587; // from cart total
+        return $this->paymentGateway->pay($amount);
     }
 
     public function placeOrder(Request $request)

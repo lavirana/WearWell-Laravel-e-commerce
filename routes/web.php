@@ -6,9 +6,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\shopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\upload_csv;
 use App\Http\Controllers\WishlistController;
 
 Route::get('/', [homeController::class, 'index']);
+
+
+Route::get('/upload-csv', [\App\Http\Controllers\upload_csv::class, 'index'])->name('upload.csv');
+Route::post('/upload-csv', [upload_csv::class, 'upload'])->name('csv.upload');
+Route::post('start-sync', [upload_csv::class, 'startSync'])->name('start.sync');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,7 +50,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/wishlist/add', [WishlistController::class, 'store'])->name('wishlist.add');
     Route::post('/wishlist/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
 
+
+
 });
+
+
+
+
 
 
 require __DIR__.'/auth.php';
